@@ -141,7 +141,7 @@ function Task(props) {
 
 #### `type`
 
-The type of the component. Typically what you'd put between `<` and `>` in JSX.
+The type of the component - typically what you'd put between `<` and `>` in JSX.
 
 #### `props`
 
