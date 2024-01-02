@@ -1,10 +1,10 @@
-# JCN - *J*son *C*omponent *N*otation
+# JCON - *J*son *CO*mponent *N*otation
 
 JSON is easy to parse and build tools around.
 
 UI Components are the standard way apps are built, but they have second-class support in programming languages and workflows.
 
-JCN is an intuitive way to represent UI Components in JSON, allowing you to inject logic as needed.
+JCON is an intuitive way to represent UI Components in JSON, allowing you to inject logic as needed.
 
 ## Example
 
@@ -30,15 +30,15 @@ JCN is an intuitive way to represent UI Components in JSON, allowing you to inje
 }
 ```
 
-## app.jcn
+## app.jcon
 
 Components the primary focus of most front-end applications, but apps also have logic/helpers, assets, and dependencies.
 
-JCN is typically used in a larger app.jcn file that describes the entire app - metadata, dependencies, components, etc...
+JCON is typically used in a larger app.jcon file that describes the entire app - metadata, dependencies, components, etc...
 
-JCN files can be edited directly, but the core value in them is that they're easy to build tools around - so we recommend using a tool like Scaffolding to edit them.
+JCON files can be edited directly, but the core value in them is that they're easy to build tools around - so we recommend using a tool like Scaffolding to edit them.
 
-Typically JCN apps are run/deployed by generating code in the form an existing framework like React or Vue and executing it - meaning all of that framework's features are supported without performance costs.
+Typically JCON apps are run/deployed by generating code in the form an existing framework like React or Vue and executing it - meaning all of that framework's features are supported without performance costs.
 
 ```js
 {
@@ -164,7 +164,7 @@ e.g. `{type: 'Component', name: 'App'}` => `function App() {`
 
 #### `expressions` (type: Component only)
 
-Expressions are used to inject logic into components. They are typically used to define state, variables, and functions. Some common patterns are supported natively for convenience when editing a JCN app using a interface.
+Expressions are used to inject logic into components. They are typically used to define state, variables, and functions. Some common patterns are supported natively for convenience when editing a JCON app using a interface.
 
 Example expressions:
 
@@ -317,13 +317,13 @@ e.g. `{type: 'Script', script: '{isEnabled && counter + 1}'}` => `{isEnabled && 
 
 ## Further Development & Standardization
 
-JCN is still in early development, and we're looking for contributors to help build out the ecosystem.
+JCON is still in early development, and we're looking for contributors to help build out the ecosystem.
 
 Current standardization efforts are focused on JS/React (specifically NextJS for web-only apps and Expo/React Native for cross-platform apps), but we're also interested in supporting other languages/frameworks.
 
-More documentation on the JCN spec is coming soon as it is built out.
+More documentation on the JCON spec is coming soon as it is built out.
 
-Contact support@symbolicframeworks.com if you're interested in contributing or using JCN in your project.
+Contact support@symbolicframeworks.com if you're interested in contributing or using JCON in your project.
 
 ## License
 
