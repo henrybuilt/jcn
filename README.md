@@ -2,7 +2,7 @@
 
 JSON is easy to parse and build tools around.
 
-UI Components are the standard way apps are built, but they have second-class support in programming languages.
+UI Components are the standard way apps are built, but they have second-class support in programming languages and workflows.
 
 JCN is an intuitive way to represent UI Components in JSON, allowing you to inject logic as needed.
 
