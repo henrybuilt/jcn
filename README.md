@@ -245,7 +245,7 @@ function App {
 }
 ```
 
-#### `stylesheet` (web only, type: Component only)
+#### `stylesheet` (platform: web only, type: Component only)
 
 Inline styles can be passed via `props.style`, but if you want to use CSS/SCSS, you can pass it via `stylesheet`.
 
