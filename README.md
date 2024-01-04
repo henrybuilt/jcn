@@ -38,7 +38,7 @@ JCON files can be edited directly, but the core value in them is that they're ea
 
 JCON apps are run by generating a repository (i.e. NextJS or React Native repo) which can be deployed or developed traditionally. This means all of a supported framework's features are supported without performance costs because a native, unopinionated repository can be generated and deployed traditionally.
 
-Because JCON apps become React repositories, this mean they can install and use any existing npm module, including component libraries.
+JCON apps can use use any existing npm module including existing component libraries because of this.
 
 Please note the Further Development & Standardization section at the end for more details on the future of the standard.
 
