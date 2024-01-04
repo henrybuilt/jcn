@@ -36,7 +36,9 @@ JCON is typically used in a larger app.jcon file that describes the entire app -
 
 JCON files can be edited directly, but the core value in them is that they're easy to build tools around - so we recommend using a tool like Scaffolding to edit them.
 
-Typically JCON apps are run/deployed by generating code in the form an existing framework like React or Vue and executing it - meaning all of that framework's features are supported without performance costs.
+JCON apps are run by generating a repository (i.e. NextJS or React Native repo) which can be deployed or developed traditionally. This means all of a supported framework's features are supported without performance costs because a native, unopinionated repository can be generated and deployed traditionally.
+
+Please note the Further Development & Standardization section at the end for more details on the future of the standard.
 
 ```js
 {
