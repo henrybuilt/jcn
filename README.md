@@ -2,7 +2,7 @@
 
 JSON is inspired by React, but is much easier to parse and build tools around.
 
-It provides an intuitive way to represent/specify UI components and apps in JSON, allowing you to inject code (JavaScript & CSS currently - soon TypeScript and maybe other languages) as needed.
+It provides an intuitive way to specify/represent UI components and apps in JSON, allowing you to inject code (JavaScript & CSS currently - soon TypeScript and maybe other languages) as needed.
 
 ## Example
 
