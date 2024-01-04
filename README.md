@@ -1,10 +1,8 @@
 # JCON - *J*son *C*omponent *N*otation
 
-JSON is easy to parse and build tools around.
+JSON is inspired by React, but is much easier to parse and build tools around.
 
-UI Components are the standard way apps are built, but they have second-class support in programming languages and workflows.
-
-JCON is an intuitive way to represent UI Components in JSON, allowing you to inject logic as needed.
+It provides an intuitive way to represent UI components and front-end apps in JSON, allowing you to inject code (JavaScript & CSS currently - soon TypeScript and maybe other languages) as needed.
 
 ## Example
 
