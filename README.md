@@ -1,4 +1,4 @@
-# JCON - *J*son *CO*mponent *N*otation
+# JCON - *J*son *C*omponent *N*otation
 
 JSON is easy to parse and build tools around.
 
