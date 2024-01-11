@@ -410,8 +410,7 @@ function MyComponent(props) {
 if (Platform.OS !== 'web') {
   var styles = {
     MyView: {
-      height: 10,
-      width: 10
+      height: 10
     },
     MyText: {
       color: 'black'
