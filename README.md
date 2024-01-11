@@ -243,7 +243,7 @@ function App {
 }
 ```
 
-## Styles
+#### Styles
 
 There are many approaches to styling a website - from inline styles, to CSS/SASS, to various CSS-in-JSS approaches (i.e. StyledComponents).
 
