@@ -524,7 +524,12 @@ e.g. `{type: 'Script', script: '{isEnabled && counter + 1}'}` => `{isEnabled && 
 
 JCON is still in early development, and we're looking for contributors to help build out the ecosystem.
 
-What we have so far is a strong baseline for further development of JCON as a standard because it covers compatibility for a large portion of front-end apps, while being in a format that is easy to understand (relatively few symbols/types etc), familiar (like React/JSX), easy to extend (much easier than introducing a new ECMA standard), and notably easy to build better tools for developers around (improving the Javascript + filesystem workflow is really hard - building around JSON is much more managable).
+What we have so far is a strong baseline for further development of JCON as a standard because it:
+
+- covers compatibility for a large portion of front-end apps
+- is easy to understand (JSON) & familiar (like React/JSX)
+- is easy to extend (much easier than introducing a new ECMA standard)
+- is easy to build better tools for developers around (improving the Javascript + filesystem workflow is really hard - building around JSON is much more managable)
 
 The above standard is quite stable, but some app-level properties like `files` and `rootComponent` maybe subject to change. Remaining V1 standardization efforts are focused on JS/React (specifically NextJS for web-only apps and Expo/React Native for cross-platform apps), but we're also interested in supporting other languages/frameworks.
 
