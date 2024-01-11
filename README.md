@@ -281,6 +281,9 @@ But the below example app is showing many possible use-cases including a global 
       type: 'Component',
       styleSheet: ``,
       styleModule: ``,
+      expressions: [
+        {type: 'state', var: ['isExpanded', 'setIsExpanded'], value: true}
+      ],
       children: [
         {
           type: 'View',
@@ -289,27 +292,23 @@ But the below example app is showing many possible use-cases including a global 
             className: ['.dark-theme', '{classes.flex}']
           },
           style: [
-            {
-              height: 10, //compiles to css
-              width: '{10 * 12}' //dynamic - compiles to js to be calculated at render time
-            },
+            {height: 10, width: '{10 * 12}'}, //width here is a dynamic script, so it gets inlined rather than compiled to success
 
             //plain sass string that will get associated with this component by name (MyView)
             `&::-webkit-scrollbar {
               background-color: rgba(0, 0, 0, 0.1);
             }`,
 
-            //css selector + js object you can edit via ui
-            [{selector: '&:hover'}, {
-              opacity: 0.5;
-            }],
+            [{selector: '&:hover'}, {opacity: 0.5}], //css selector + js object you can edit via ui
 
             //cross-platform system for responsive layouts on web (native CSS) + iOS/Android (JS)
             [{format: 'wide'}, {
               width: [30, '!important'] //important only works in web environments
             }],
 
-            `{props.style}`, //dynamic - compiles to js
+            `{props.style}`, //dynamic script - compiles to js
+
+            [{condition: '{isExpanded}'}, {display: 'block'}, {display: 'none'}] //conditional js style
           ],
           children: [
             {
@@ -363,6 +362,7 @@ This compiles to the following:
 
 #### App.js (react)
 ```js
+import { useState } from 'react';
 import classes from 'App.module.scss';
 import 'global.scss';
 
@@ -371,9 +371,11 @@ export default function App() {
 }
 
 function MyComponent(props) {
+  var [isExpanded, setIsExpanded] = useState(true);
+
   return (
     <div
-      style={{width: 10 * 12, ...props.style}}
+      style={{width: 10 * 12, ...props.style, ...(isExpanded ? {display: 'block'} : {display: 'none'})}}
       className={[classes.MyView, '.dark-theme', classes.flex].join(' ')}
     >
       <span className={classes.MyText}>Hello World</span>
@@ -384,6 +386,7 @@ function MyComponent(props) {
 
 #### App.js (react native)
 ```js
+import { useState } from 'react';
 import { View, Text } from 'react-native';
 import { useFormats, getUseStyle } from 'jcon-react';
 import classes from 'App.module.scss'; //works in web environment only
@@ -393,18 +396,20 @@ export default function App() {
   return <MyComponent />
 }
 
-// useStyle conditionally decides to
-// use css or js styles based on the environment
-// and reduces boilerplate
-
 function MyComponent(props) {
+  var [isExpanded, setIsExpanded] = useState(true);
   var useStyle = getUseStyle({classes, styles});
+
+  // useStyle conditionally decides to
+  // use css or js styles based on the environment
+  // and reduces boilerplate
 
   return (
     <View style={[
        {width: 10 * 12},
        useStyle('MyView', {formats: {wide: {width: [30, '!important']}}, className: ['.dark-theme', classes.flex]}),
-       props.style
+       props.style,
+      isExpanded ? {display: 'block'} : {display: 'none'}
      ]}>
       <Text style={useStyle('MyText')}>Hello world</Text>
       <Text style={[useStyle('Text1'), {color: 'black'}]}>Hello again</Text>
