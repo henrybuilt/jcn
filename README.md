@@ -428,11 +428,14 @@ You can define a format like so at the top level:
 ...and then use them in staticStyle like so:
 
 ```js
-staticStyle: [ 
-  {format: 'wide', style: {
-    width: [30, '!important'], //important only works in web environments
-  }}
-]
+{
+  type: 'View',
+  staticStyle: [ 
+    {format: 'wide', style: {
+      width: 1000
+    }}
+  ]
+}
 ```
 
 These formatted styles compile to CSS on web apps, and are managed by the useStyle hook in cross-platform apps.
