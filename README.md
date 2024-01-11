@@ -299,7 +299,7 @@ The below example app uses a global stylesheet, SCSS modules, and JCON style syn
             
             //cross-platform system for responsive layouts on web (native CSS) + iOS/Android (JS)
             {format: 'wide', style: {
-              width: [30, '!important'], //important only works in web environments
+              width: [30, '!important'] //important only works in web environments
             }}
           ],
           children: [
