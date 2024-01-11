@@ -410,9 +410,9 @@ if (Platform.OS !== 'web') {
 }
 ```
 
-#### Style `formats`
+#### `styleFormats`
 
-It's common that apps support specific screen orientations/sizes - vertical/horizontal, wide/narrow (or multiple themes like light/dark - which we're standardizing soon with style "states").
+It's common that apps support specific screen orientations/sizes - vertical/horizontal, wide/narrow.
 
 You can acheive this with CSS media queries and classNames in web apps, or conditional logic/libraries in cross-platform apps, but we think it should be native behavior because most apps need some form of it.
 
