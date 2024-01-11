@@ -409,6 +409,34 @@ if (Platform.OS !== 'web') {
 }
 ```
 
+#### Style `formats`
+
+It's common that apps support specific screen orientations/sizes - vertical/horizontal, wide/narrow (or multiple themes like light/dark - which we're standardizing soon with style "states").
+
+You can acheive this with CSS media queries and classNames in web apps, or conditional logic/libraries in cross-platform apps, but we think it should be native behavior because most apps need some form of it.
+
+You can define a format like so at the top level:
+
+```js
+{
+  formats: {
+    wide: {minWidth: 1024}
+  }
+}
+```
+
+...and then use them in staticStyle like so:
+
+```js
+staticStyle: [ 
+  {format: 'wide', style: {
+    width: [30, '!important'], //important only works in web environments
+  }}
+]
+```
+
+These formatted styles compile to CSS on web apps, and are managed by the useStyle hook in cross-platform apps.
+
 ## Native Component Types
 
 #### `Component`
