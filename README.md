@@ -28,7 +28,7 @@ It provides an intuitive way to specify/represent UI components and apps in JSON
 }
 ```
 
-## app.jcon
+#### app.jcon
 
 Components the primary focus of most front-end applications, but apps also have logic/helpers, assets, and dependencies.
 
@@ -261,7 +261,7 @@ You can always just apply a style object:
 But the below example app is showing many possible use-cases including a global stylesheet, SCSS modules, and JCON style syntax (which generates CSS for static styles not relying on scripts).
 
 
-#### app.jcon
+**app.jcon**
 ```js
 {
   styleSheet: `.dark-theme {
@@ -333,7 +333,7 @@ But the below example app is showing many possible use-cases including a global 
 
 This compiles to the following:
 
-#### global.scss
+**global.scss**
 ```css
 .dark-theme { /* from styleSheet */
   background-color: black;
@@ -341,7 +341,7 @@ This compiles to the following:
 }
 ```
 
-#### App.module.scss
+**App.module.scss**
 ```css
 .flex { /* from styleModule */
   display: flex;
@@ -360,7 +360,7 @@ This compiles to the following:
 }
 ```
 
-#### App.js (react)
+**App.js (react)**
 ```js
 import { useState } from 'react';
 import classes from 'App.module.scss';
@@ -384,7 +384,7 @@ function MyComponent(props) {
 }
 ```
 
-#### App.js (react native)
+**App.js (react native)**
 ```js
 import { useState } from 'react';
 import { View, Text } from 'react-native';
