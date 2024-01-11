@@ -265,8 +265,9 @@ The below example app uses a global stylesheet, SCSS modules, and JCON style syn
   styleModule: `.flex {
     display: flex;
   }`,
-  formats: {
-    wide: {minWidth: 1024}
+  styleFormats: {
+    wide: {minWidth: 1024},
+    narrow: {maxWidth: 1023}
   },
   components: [
     {
