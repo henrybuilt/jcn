@@ -164,86 +164,7 @@ A unique name is required for component definitions, but is optional elsewhere (
 
 e.g. `{type: 'Component', name: 'App'}` => `function App() {`
 
-#### `expressions` (type: Component only)
-
-Expressions are used to inject logic into components. They are typically used to define state, variables, and functions. Some common patterns are supported natively for convenience when editing a JCON app using a interface.
-
-Example expressions:
-
-```js
-{
-  type: 'Component',
-  name: 'Task',
-  expressions: [
-    '{var [counter, setCounter] = useState(1)}', // script
-    {type: 'state', var: ['tasks', 'setTasks'], value: []}, // shorthand for useState - destructuring array
-    {type: 'var', var: 'myValue', value: 1}, //variable
-    {type: 'var', var: {task: {}, index: {alias: 'i', defaultValue: 0}, restProps: '...'}, value: '{props}'}, // complex object destructuring
-    {type: 'var', var: [{x: {defaultValue: 0}, {restArray: '...'}}], value: [0, 0, 0]} //complex array destructuring
-    {type: 'ref', var: 'inputRef', value: '{useRef()}'}, //ref
-    {type: 'effect', value: `{() => inputRef.current?.focus()}`} //effect
-  ],
-  children: []
-}
-```
-
-=>
-
-```js
-function Task(props) {
-  var [counter, setCounter] = useState(1);
-  var [tasks, setTasks] = useState([]);
-
-  var updateTask = (id, updates) => {
-    setTasks(tasks.map(task => task.id === id ? {...task, ...updates} : task));
-  }
-
-  var {task, index: i = 0, ...restProps} = props;
-  var [x = 0, ...restArray] = [0, 0, 0];
-  var inputRef = useRef();
-
-  useEffect(() => {
-    inputRef.current.focus();
-  }, []);
-
-  return null;
-}
-```
-
-#### `imports` (type: Component only)
-
-Imports are used to import dependencies, assets, and other components.
-
-e.g.
-
-```js
-{
-  type: 'Component',
-  name: 'App',
-  imports: [
-    {import: {useState: {}}, from: 'react'},
-    {import: {View: {}, Button: {}}, from: '@scaffolding-components/ui'},
-    {import: '_', from: 'lodash'},
-    {import: {'*': {alias: 'THREE'}}, from: 'three'}
-  ],
-  children: []
-}
-```
-
-=>
-
-```js
-import {useState} from 'react';
-import {View, Button} from '@scaffolding-components/ui';
-import _ from 'lodash';
-import * as THREE from 'three';
-
-function App {
-  return null;
-}
-```
-
-#### Styles
+#### `style`
 
 There are many approaches to styling a website - from inline styles, to CSS/SASS, to various CSS-in-JSS approaches (i.e. StyledComponents).
 
@@ -463,6 +384,85 @@ You can define a format like so at the top level:
 ```
 
 These formatted styles compile to CSS on web apps, and are managed by the useStyle hook in cross-platform apps.
+
+#### `expressions` (type: Component only)
+
+Expressions are used to inject logic into components. They are typically used to define state, variables, and functions. Some common patterns are supported natively for convenience when editing a JCON app using a interface.
+
+Example expressions:
+
+```js
+{
+  type: 'Component',
+  name: 'Task',
+  expressions: [
+    '{var [counter, setCounter] = useState(1)}', // script
+    {type: 'state', var: ['tasks', 'setTasks'], value: []}, // shorthand for useState - destructuring array
+    {type: 'var', var: 'myValue', value: 1}, //variable
+    {type: 'var', var: {task: {}, index: {alias: 'i', defaultValue: 0}, restProps: '...'}, value: '{props}'}, // complex object destructuring
+    {type: 'var', var: [{x: {defaultValue: 0}, {restArray: '...'}}], value: [0, 0, 0]} //complex array destructuring
+    {type: 'ref', var: 'inputRef', value: '{useRef()}'}, //ref
+    {type: 'effect', value: `{() => inputRef.current?.focus()}`} //effect
+  ],
+  children: []
+}
+```
+
+=>
+
+```js
+function Task(props) {
+  var [counter, setCounter] = useState(1);
+  var [tasks, setTasks] = useState([]);
+
+  var updateTask = (id, updates) => {
+    setTasks(tasks.map(task => task.id === id ? {...task, ...updates} : task));
+  }
+
+  var {task, index: i = 0, ...restProps} = props;
+  var [x = 0, ...restArray] = [0, 0, 0];
+  var inputRef = useRef();
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
+  return null;
+}
+```
+
+#### `imports` (type: Component only)
+
+Imports are used to import dependencies, assets, and other components.
+
+e.g.
+
+```js
+{
+  type: 'Component',
+  name: 'App',
+  imports: [
+    {import: {useState: {}}, from: 'react'},
+    {import: {View: {}, Button: {}}, from: '@scaffolding-components/ui'},
+    {import: '_', from: 'lodash'},
+    {import: {'*': {alias: 'THREE'}}, from: 'three'}
+  ],
+  children: []
+}
+```
+
+=>
+
+```js
+import {useState} from 'react';
+import {View, Button} from '@scaffolding-components/ui';
+import _ from 'lodash';
+import * as THREE from 'three';
+
+function App {
+  return null;
+}
+```
 
 ## Native Component Types
 
