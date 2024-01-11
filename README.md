@@ -438,12 +438,12 @@ You can define a format like so at the top level:
 }
 ```
 
-...and then use them in staticStyle like so:
+...and then use them on a given component like so:
 
 ```js
 {
   type: 'View',
-  staticStyle: [
+  style: [
     {format: 'wide', style: {
       width: 1000
     }}
