@@ -14,7 +14,7 @@ It provides an intuitive way to specify/represent UI components and apps in JSON
     {import: {useState: {}}, from: 'react'}
   ],
   expressions: [
-    '{var [count, setCount} = useState(1)}'
+    '{var [count, setCount] = useState(1)}'
   ],
   children: [
     {
