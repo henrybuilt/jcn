@@ -1,4 +1,4 @@
-# JCON - JSON Component Notation
+# JCON - Json Component Notation
 
 JCON is inspired by React, but is much easier to parse and build tools around.
 
