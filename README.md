@@ -338,20 +338,17 @@ function MyComponent(props) {
   );
 };
 
-//these are only used on ios/android
-if (Platform.OS !== 'web') {
-  var styles = {
-    MyView: {
-      height: 10
-    },
-    MyText: {
-      color: 'black'
-    },
-    Text1: {
-      color: 'black'
-    }
-  };
-}
+var styles = {
+  MyView: {
+    height: 10
+  },
+  MyText: {
+    color: 'black'
+  },
+  Text1: {
+    color: 'black'
+  }
+};
 ```
 
 #### `styleFormats`
