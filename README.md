@@ -229,7 +229,7 @@ But the below example app is showing many possible use-cases including a global 
 
             `{props.style}`, //dynamic script - compiles to js
 
-            [{condition: '{isExpanded}'}, {display: 'block'}, {display: 'none'}] //conditional js style
+            [{condition: '{isExpanded}'}, {display: 'block'}] //conditional js style
           ],
           children: [
             {
