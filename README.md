@@ -213,23 +213,12 @@ But the below example app is showing many possible use-cases including a global 
             className: ['.dark-theme', '{classes.flex}']
           },
           style: [
-            {height: 10, width: '{10 * 12}'}, //width here is a dynamic script, so it gets inlined rather than compiled to success
-
-            //plain sass string that will get associated with this component by name (MyView)
-            `&::-webkit-scrollbar {
-              background-color: rgba(0, 0, 0, 0.1);
-            }`,
-
-            [{selector: '&:hover'}, {opacity: 0.5}], //css selector + js object you can edit via ui
-
-            //cross-platform system for responsive layouts on web (native CSS) + iOS/Android (JS)
-            [{format: 'wide'}, {
-              width: [30, '!important'] //important only works in web environments
-            }],
-
-            `{props.style}`, //dynamic script - compiles to js
-
-            [{condition: '{isExpanded}'}, {display: 'block'}] //conditional js style
+            {height: 10, width: '{10 * 12}'},
+            [{selector: '&:hover'}, {opacity: 0.5}], //sass-selector-based styles (web only)
+            [{format: 'wide'}, {width: 30}], //cross-platform responsive layout pattern (see formats above)
+            [{condition: '{isExpanded}'}, {display: 'block'}] //dynamic conditional styles
+            `&::-webkit-scrollbar { background-color: rgba(0, 0, 0, 0.1);}`, //static sass string (web only)
+            `{props.style}`, //dynamic js script
           ],
           children: [
             {
