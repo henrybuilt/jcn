@@ -260,12 +260,12 @@ This compiles to the following:
 .MyView {
   height: 10px;
 
-  @media (min-width: 1024px) { /* format: wide */
-    width: 30px !important;
-  }
-
   &:hover {
     opacity: 0.5;
+  }
+
+  @media (min-width: 1024px) { /* format: wide */
+    width: 30px !important;
   }
 
   &::-webkit-scrollbar {
