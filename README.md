@@ -260,12 +260,16 @@ This compiles to the following:
 .MyView {
   height: 10px;
 
+  @media (min-width: 1024px) { /* format: wide */
+    width: 30px !important;
+  }
+
   &:hover {
     opacity: 0.5;
   }
 
-  @media (min-width: 1024px) { /* format: wide */
-    width: 30px !important;
+  &::-webkit-scrollbar {
+    background-color: rgba(0, 0, 0, 0.1);
   }
 }
 ```
@@ -285,7 +289,7 @@ function MyComponent(props) {
 
   return (
     <div
-      style={{width: 10 * 12, ...props.style, ...(isExpanded ? {display: 'block'} : {display: 'none'})}}
+      style={{width: 10 * 12, ...(isExpanded ? {display: 'block'} : {display: 'none'}), ...props.style}}
       className={[classes.MyView, '.dark-theme', classes.flex].join(' ')}
     >
       <span className={classes.MyText}>Hello World</span>
@@ -319,7 +323,7 @@ function MyComponent(props) {
        {width: 10 * 12},
        useStyle('MyView', {formats: {wide: {width: [30, '!important']}}, className: ['.dark-theme', classes.flex]}),
        props.style,
-      isExpanded ? {display: 'block'} : {display: 'none'}
+       isExpanded ? {display: 'block'} : {}
      ]}>
       <Text style={useStyle('MyText')}>Hello world</Text>
       <Text style={[useStyle('Text1'), {color: 'black'}]}>Hello again</Text>
