@@ -213,8 +213,8 @@ But the below example app is showing many possible use-cases including a global 
             className: ['.dark-theme', '{classes.flex}']
           },
           style: [
-            {height: 10, width: '{10 * 12}'},
-            [{condition: '{isExpanded}'}, {display: 'block'}] //conditional styles
+            {height: 10, width: '{props.size * 10}'},
+            [{condition: '{isExpanded}'}, {display: 'block'}], //conditional styles
             [{format: 'wide'}, {width: 30}], //cross-platform responsive layouts - css on web, js on cross-platform (see formats above)
             [{selector: '&:hover'}, {opacity: 0.5}], //static sass-selector-based styles (web only)
             `&::-webkit-scrollbar { background-color: rgba(0, 0, 0, 0.1);}`, //static sass string (web only)
@@ -258,8 +258,6 @@ This compiles to the following:
 }
 
 .MyView {
-  height: 10px;
-
   &:hover {
     opacity: 0.5;
   }
@@ -289,7 +287,7 @@ function MyComponent(props) {
 
   return (
     <div
-      style={{width: 10 * 12, ...(isExpanded ? {display: 'block'} : {display: 'none'}), ...props.style}}
+      style={{height: 10, width: props.size * 10, ...(isExpanded ? {display: 'block'} : {display: 'none'}), ...props.style}}
       className={[classes.MyView, '.dark-theme', classes.flex].join(' ')}
     >
       <span className={classes.MyText}>Hello World</span>
@@ -320,8 +318,8 @@ function MyComponent(props) {
 
   return (
     <View style={[
-       {width: 10 * 12},
-       useStyle('MyView', {formats: {wide: {width: [30, '!important']}}, className: ['.dark-theme', classes.flex]}),
+       {width: props.size * 10},
+       useStyle('MyView'), {formats: {wide: {width: [30, '!important']}}, className: ['.dark-theme', classes.flex]}),
        props.style,
        isExpanded ? {display: 'block'} : {}
      ]}>
