@@ -300,7 +300,7 @@ function MyComponent(props) {
 ```js
 import { useState } from 'react';
 import { View, Text } from 'react-native';
-import { useFormats, getUseStyle } from 'jcon-react';
+import { useFormats, getUseStyle, useFormat } from 'jcon-react';
 import classes from 'App.module.scss'; //works in web environment only
 import 'global.scss'; //works in web environment only
 
@@ -317,14 +317,17 @@ function MyComponent(props) {
   // and reduces boilerplate
 
   return (
-    <View style={[
-       {width: props.size * 10},
-       useStyle('MyView'), {formats: {wide: {width: [30, '!important']}}, className: ['.dark-theme', classes.flex]}),
-       props.style,
-       isExpanded ? {display: 'block'} : {}
-     ]}>
-      <Text style={useStyle('MyText')}>Hello world</Text>
-      <Text style={[useStyle('Text1'), {color: 'black'}]}>Hello again</Text>
+    <View
+      style={useStyle([
+        styles.MyView,
+        {width: props.size * 10},
+        useFormat('wide', {width: 30}),
+        props.style,
+        isExpanded ? {display: 'block'} : {}
+      ], {className: [classes.MyText, '.dark-theme', classes.flex]})}
+    >
+      <Text style={styles.MyText}>Hello world</Text>
+      <Text style={[styles.Text1, {color: 'black'}]}>Hello again</Text>
     </View>
   );
 };
