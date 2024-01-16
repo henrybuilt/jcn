@@ -258,7 +258,9 @@ This compiles to the following:
 }
 
 .MyView {
-  &:hover {
+  height: 10px; //cross-platform uses styles.MyView instead for this static style
+
+  &:hover { //cross-platform supports css in a web environment only (not ios/android)
     opacity: 0.5;
   }
 
