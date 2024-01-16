@@ -323,9 +323,9 @@ function MyComponent(props) {
       style={useStyle([
         styles.MyView,
         {width: props.size * 10},
+        isExpanded ? {display: 'block'} : {},
         useFormat('wide', {width: 30}),
-        props.style,
-        isExpanded ? {display: 'block'} : {}
+        props.style
       ], {className: [classes.MyText, '.dark-theme', classes.flex]})}
     >
       <Text style={styles.MyText}>Hello world</Text>
