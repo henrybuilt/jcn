@@ -390,12 +390,12 @@ Example expressions:
   name: 'Task',
   expressions: [
     '{var [counter, setCounter] = useState(1)}', // script
-    {type: 'state', var: ['tasks', 'setTasks'], value: []}, // shorthand for useState - destructuring array
+    {type: 'state', var: ['tasks', 'setTasks'], initialState: []}, // shorthand for useState - destructuring array
     {type: 'var', var: 'myValue', value: 1}, //variable
     {type: 'var', var: {task: {}, index: {alias: 'i', defaultValue: 0}, restProps: '...'}, value: '{props}'}, // complex object destructuring
-    {type: 'var', var: [{x: {defaultValue: 0}, {restArray: '...'}}], value: [0, 0, 0]} //complex array destructuring
-    {type: 'ref', var: 'inputRef', value: '{useRef()}'}, //ref
-    {type: 'effect', value: `{() => inputRef.current?.focus()}`} //effect
+    {type: 'var', var: ['x', {y: {defaultValue: 0}}, {restArray: '...'}}], value: [0, 0, 0]} //complex array destructuring
+    {type: 'ref', var: 'inputRef', initialValue: null}, //ref
+    {type: 'effect', setup: `{() => inputRef.current?.focus()}`, dependencies: []} //effect
   ],
   children: []
 }
