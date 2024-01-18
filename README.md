@@ -64,7 +64,7 @@ Please note the Further Development & Standardization section at the end for mor
       type: 'Component',
       name: 'App',
       expressions: [
-        {type: 'state', var: ['tasks', 'setTasks'], value: []},
+        {type: 'state', var: ['tasks', 'setTasks'], initialState: []},
         {type: 'var', var: 'updateTask', value: `{(id, updates) => {
           setTasks(tasks.map(task => task.id === id ? {...task, ...updates} : task));
         }}`}
@@ -203,7 +203,7 @@ But the below example app is showing many possible use-cases including a global 
       styleSheet: ``,
       styleModule: ``,
       expressions: [
-        {type: 'state', var: ['isExpanded', 'setIsExpanded'], value: true}
+        {type: 'state', var: ['isExpanded', 'setIsExpanded'], initialState: true}
       ],
       children: [
         {
