@@ -492,7 +492,9 @@ JCON has first-class support for contexts:
 ]
 ```
 
-Contexts generated using provideContexts must have unique names in the app, but eliminate significant boilerplate and setup, making contexts much more appealing to use and get the benefits of performance optimization/organization. You can always create your own contexts manually using expressions if you prefer.
+Contexts generated using provideContexts must have unique names in the app, but eliminate significant boilerplate and setup, making contexts much more appealing to use and get the benefits of performance optimization/organization. 
+
+You can always create your own contexts manually using expressions if you prefer.
 
 ## Native Component Types
 
