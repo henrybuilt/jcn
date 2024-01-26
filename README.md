@@ -258,9 +258,9 @@ This compiles to the following:
 }
 
 .MyView {
-  height: 10px; //cross-platform uses styles.MyView instead for this static style
+  height: 10px; /* cross-platform uses styles.MyView instead for this static style */
 
-  &:hover { //cross-platform supports css in a web environment only (not ios/android)
+  &:hover { /* cross-platform supports css in a web environment only (not ios/android) */
     opacity: 0.5;
   }
 
@@ -456,6 +456,43 @@ function App {
   return null;
 }
 ```
+
+#### `contexts`
+
+React has a mechanism called "[contexts](https://react.dev/learn/passing-data-deeply-with-context)" to allow a component higher up in the tree (i.e. a root App component) down to components lower in the tree.
+
+JCON has first-class support for contexts:
+
+```js
+[
+  {
+    type: 'Component',
+    name: 'App',
+    expressions: [{type: 'var', var: 'myValue', value: 1}],
+    provideContexts: ['myValue'], // => <MyValueContext.Provider value={myValue}>{children}</MyValueContext.Provider>
+    children: [
+      {type: 'ChildComponent'}
+    ]
+  },
+  {
+    type: 'Component',
+    name: 'ChildComponent',
+    children: [
+      {type: 'GrandchildComponent'}
+    ]
+  },
+  {
+    type: 'Component',
+    name: 'ChildComponent',
+    useContexts: ['myValue'], // => var myValue = useContext(MyValueContext);
+    children: [
+      {type: 'Text', props: {text: '{myValue}'}}
+    ]
+  }
+]
+```
+
+Contexts generated using provideContexts must have unique names in the app, but eliminate significant boilerplate and setup, making contexts much more appealing to use and get the benefits of performance optimization/organization. You can always create your own contexts manually using expressions if you prefer.
 
 ## Native Component Types
 
