@@ -457,7 +457,7 @@ function App {
 }
 ```
 
-#### `contexts` (type: Component only)
+#### `provideContexts` & `useContexts` (type: Component only)
 
 React has a mechanism called "[contexts](https://react.dev/learn/passing-data-deeply-with-context)" to allow a component higher up in the tree (i.e. a root App component) down to components lower in the tree.
 
