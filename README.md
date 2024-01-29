@@ -217,7 +217,7 @@ But the below example app is showing many possible use-cases including a global 
             {condition: '{isExpanded}', style: {display: 'block'}}, //conditional styles
             {format: 'wide', style: {width: 30}}, //cross-platform responsive layouts - css on web, js on cross-platform (see formats above)
             {selector: '&:hover', style: {opacity: 0.5}}, //static sass-selector-based styles (web only)
-            `&::-webkit-scrollbar { background-color: rgba(0, 0, 0, 0.1);}`, //static sass string (web only)
+            `&::-webkit-scrollbar { background-color: rgba(0, 0, 0, 0.1); }`, //static sass string (web only)
             `{props.style}`, //dynamic js script
           ],
           children: [
