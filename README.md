@@ -213,10 +213,10 @@ But the below example app is showing many possible use-cases including a global 
             className: ['.dark-theme', '{classes.flex}']
           },
           style: [
-            {style: {height: 10, width: '{props.size * 10}'}},
-            {condition: '{isExpanded}'}, style: {display: 'block'}, //conditional styles
-            {format: 'wide', style: {width: 30}, //cross-platform responsive layouts - css on web, js on cross-platform (see formats above)
-            {selector: '&:hover', style: {opacity: 0.5}, //static sass-selector-based styles (web only)
+            {type: 'style', style: {height: 10, width: '{props.size * 10}'}},
+            {type: 'condition', condition: '{isExpanded}'}, style: {display: 'block'}, //conditional styles
+            {type: 'format', format: 'wide', style: {width: 30}, //cross-platform responsive layouts - css on web, js on cross-platform (see formats above)
+            {type: 'selector', selector: '&:hover', style: {opacity: 0.5}, //static sass-selector-based styles (web only)
             `&::-webkit-scrollbar { background-color: rgba(0, 0, 0, 0.1);}`, //static sass string (web only)
             `{props.style}`, //dynamic js script
           ],
