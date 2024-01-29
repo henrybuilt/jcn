@@ -274,7 +274,7 @@ This compiles to the following:
 }
 ```
 
-**App.js (react)**
+**App.js (NextJS)**
 ```js
 import { useState } from 'react';
 import classes from 'App.module.scss';
@@ -298,7 +298,7 @@ function MyComponent(props) {
 }
 ```
 
-**App.js (react native)**
+**App.js (Expo/React Native)**
 ```js
 import { useState } from 'react';
 import { View, Text } from 'react-native';
