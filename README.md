@@ -151,6 +151,14 @@ Properties to pass to component instances when rendering them.
 
 e.g. `{type: 'Text', props: {text: 'Hello World'}}` => `<Text text="Hello World"/>`
 
+Props support a single object shown above, but also support an array syntax that compiles to spread syntax:
+
+`{type: 'Text', props: [{text: 'Hello World'}, '{isActive ? {fontWeight: 'bold'} : {}}'`
+
+=> 
+
+`<Text props={{text: 'Hello World', ...(isActive ? {fontWeight: 'bold'} : {})}}/>`
+
 #### `children`
 
 Child components to render inside the component, or a primitive like a string or number.
