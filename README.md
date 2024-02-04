@@ -2,7 +2,7 @@
 
 JCON is inspired by React, but is much easier than JavaScript to parse and build tools around.
 
-It provides an intuitive way to specify/represent UI components and apps in JSON, allowing you to inject code (JavaScript & CSS currently - soon TypeScript and maybe other languages) as needed.
+It provides an intuitive way to specify/represent UI components and apps in JSON, allowing you to inject code (JavaScript & CSS currently—soon TypeScript and maybe other languages) as needed.
 
 ## Example
 
@@ -30,15 +30,15 @@ It provides an intuitive way to specify/represent UI components and apps in JSON
 
 #### app.jcon
 
-Components the primary focus of most front-end applications, but apps also have logic/helpers, assets, and dependencies.
+Components are the primary focus of most front-end applications, but apps also have logic/helpers, assets, and dependencies.
 
-JCON is typically used in a larger app.jcon file that describes the entire app - metadata, dependencies, components, etc...
+JCON is typically used in a larger app.jcon file that describes the entire app—metadata, dependencies, components, etc.
 
-JCON files can be edited directly, but the core value in them is that they're easy to build tools around - so we recommend using a tool like Scaffolding to edit them.
+JCON files can be edited directly, but their core value is that they're easy to build tools around, so we recommend using a tool like Scaffolding to edit them.
 
-JCON apps are run by generating a repository (i.e. NextJS or React Native repo) which can be deployed or developed traditionally. This means all of a supported framework's features are supported without performance costs because a native, unopinionated repository can be generated and deployed traditionally.
+JCON apps are run by generating a repository (i.e. NextJS or React Native repo), which can be deployed or developed traditionally. This means all of a supported framework's features are supported without performance costs because a native, unopinionated repository can be generated and deployed traditionally.
 
-JCON apps can use use any existing npm module including existing component libraries because of this.
+JCON apps can use any existing npm module including existing component libraries because of this.
 
 Please note the Further Development & Standardization section at the end for more details on the future of the standard.
 
@@ -143,7 +143,7 @@ function Task(props) {
 
 #### `type`
 
-The type of the component - typically what you'd put between `<` and `>` in JSX.
+The type of the component—typically what you'd put between `<` and `>` in JSX.
 
 #### `props`
 
@@ -168,7 +168,7 @@ e.g. `{type: 'div', children: [{type: 'input'}]}` => `<div><input /></div>`
 
 #### `name`
 
-A unique name is required for component definitions, but is optional elsewhere (though it is helpful for clarity, searching, and debugging). We recommend StartCase for component names.
+A unique name is required for component definitions but is optional elsewhere (though it is helpful for clarity, searching, and debugging). We recommend StartCase for component names.
 
 e.g. `{type: 'Component', name: 'App'}` => `function App() {`
 
@@ -388,7 +388,7 @@ These formatted styles compile to CSS on web apps, and are managed by the useSty
 
 #### `expressions` (type: Component only)
 
-Expressions are used to inject logic into components. They are typically used to define state, variables, and functions. Some common patterns are supported natively for convenience when editing a JCON app using a interface.
+Expressions are used to inject logic into components. They are typically used to define state, variables, and functions. Some common patterns are supported natively for convenience when editing a JCON app using an interface.
 
 Example expressions:
 
@@ -569,13 +569,13 @@ What we have so far is a strong baseline for further development of JCON as a st
 - covers compatibility for a large portion of front-end apps
 - is easy to understand (JSON) & familiar (like React/JSX)
 - is easy to extend (much easier than introducing a new ECMA standard)
-- is easy to build better tools for developers around (improving the Javascript + filesystem workflow is really hard - building around JSON is much more managable)
+- is easy to build better tools for developers around (improving the Javascript + filesystem workflow is really hard—building around JSON is much more manageable)
 
-The above standard is quite stable, but some app-level properties like `files` and `rootComponent` maybe subject to change. Remaining V1 standardization efforts are focused on JS/React (specifically NextJS for web-only apps and Expo/React Native for cross-platform apps), but we're also interested in supporting other languages/frameworks.
+The above standard is quite stable, but some app-level properties like `files` and `rootComponent` may be subject to change. Remaining V1 standardization efforts are focused on JS/React (specifically NextJS for web-only apps and Expo/React Native for cross-platform apps), but we're also interested in supporting other languages/frameworks.
 
 More documentation on the JCON spec is coming soon as it is built out.
 
-Contact support@symbolicframeworks.com if you're interested in contributing or using JCON in your project - or create an Issue/PR if you have an idea/improvement.
+Contact support@symbolicframeworks.com if you're interested in contributing or using JCON in your project—or create an Issue/PR if you have an idea/improvement.
 
 ## License
 
